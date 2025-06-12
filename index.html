@@ -180,7 +180,7 @@
 
         <!-- Vídeo YouTube -->
         <div class="video-section moldura-site">
-            <video src="videos/vivo.mp4" autoplay muted controls height="100%" width="100%">
+            <video src="videos/vivo.mp4" autoplay controls height="100%" width="100%">
                 Seu navegador não suporta o elemento de vídeo.
             </video>
         </div>
@@ -192,6 +192,17 @@
 
     <!-- Script da senh -->
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.querySelector('video');
+
+            // Tentar tocar automaticamente com som (pode ser bloqueado)
+            video.play().catch(() => {
+                // Toca ao clicar em qualquer lugar da página
+                document.addEventListener('click', () => {
+                    video.play();
+                }, { once: true });
+            });
+        });
         function verificarSenha() {
             const senha = document.getElementById("inputSenha").value;
             const dataFormatada = senha.split("-").reverse().join("/");
