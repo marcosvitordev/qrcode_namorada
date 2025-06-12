@@ -27,7 +27,15 @@
             display: none;
         }
 
-        .spotify-frame,
+        .spotify-frame {
+            width: 100%;
+            height: 80px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
         .carousel-container,
         .text-section,
         .time-section,
@@ -60,6 +68,25 @@
         iframe {
             width: 100%;
             border-radius: 12px;
+        }
+
+        .flor {
+            position: fixed;
+            top: -2em;
+            z-index: 9999;
+            animation-name: cair;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes cair {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -116,7 +143,7 @@
 
         <!-- Vídeo YouTube -->
         <div class="video-section">
-            <iframe height="300" src="https://www.youtube.com/embed/HR4ZxjGQGYY?si=ak32iR4QkcUh0xLb"
+            <iframe height="300" src="https://www.youtube.com/embed/HR4ZxjGQGYY?si=ak32iR4QkcUh0xLb&autoplay=1&mute=0"
                 title="YouTube video" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
@@ -172,6 +199,25 @@
         setInterval(atualizarTempo, 1000);
         atualizarTempo();
     </script>
+
+    <!-- Efeito de flores caindo -->
+    <script>
+        const numFlores = 20;
+
+        for (let i = 0; i < numFlores; i++) {
+            const flor = document.createElement("div");
+            flor.classList.add("flor");
+            flor.style.left = Math.random() * 100 + "vw";
+            flor.style.animationDuration = 5 + Math.random() * 5 + "s";
+            flor.style.opacity = Math.random();
+            flor.style.fontSize = 16 + Math.random() * 24 + "px";
+            flor.innerText = "❤";
+            document.body.appendChild(flor);
+        }
+    </script>
+
+
+
 </body>
 
 </html>
