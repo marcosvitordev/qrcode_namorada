@@ -94,6 +94,7 @@
         .text-nome {
             font-family: "Edu NSW ACT Cursive", cursive;
             font-optical-sizing: auto;
+            font-size: 20pt;
         }
 
         .texto-fundo {
@@ -106,10 +107,26 @@
             max-width: 550px;
             padding: 2px;
         }
+
+        .moldura-site {
+            border: 5px solid #ff4d6d;
+            /* rosa vibrante */
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+            /* margin: 20px auto; */
+            max-width: 650px;
+            background-color: #1e0f15;
+        }
+
+        .moldura-spotify{
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+            border: 5px solid #ff4d6d;
+        }
     </style>
 </head>
 
-<body>
+<body class="moldura-site">
     <!-- Tela de senha -->
     <div id="telaSenha" class="senha-container container">
         <h2>🔐<br> Digite a data do nosso namoro (dd/mm/aaaa)</h2>
@@ -121,12 +138,12 @@
 
     <!-- Conteúdo principal -->
     <div id="conteudoPrincipal" class="hidden container text-center py-4">
-        <div class="texto-fundo">
+        <div class="texto-fundo moldura-site">
             <h1 class="text-nome">Natália <br> &<br> Marcos Vitor</h1>
         </div>
 
         <!-- Spotify -->
-        <div class="spotify-frame">
+        <div class="spotify-frame moldura-spotify">
             <iframe style="border-radius:12px"
                 src="https://open.spotify.com/embed/track/56eUThEKkPO5MVKUTpv6cG?utm_source=generator" width="100%"
                 height="100" frameBorder="0" allowfullscreen=""
@@ -135,7 +152,7 @@
         </div>
 
         <!-- Carrossel -->
-        <div id="fotoCarrossel" class="carousel slide carousel-container" data-bs-ride="carousel">
+        <div id="fotoCarrossel" class="carousel slide carousel-container moldura-site" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active"><img src="fotos/1.jpg" class="d-block w-100" alt="Foto 1"></div>
                 <div class="carousel-item"><img src="fotos/2.jpg" class="d-block w-100" alt="Foto 2"></div>
@@ -147,13 +164,13 @@
             </div>
         </div>
         <!-- Contador de tempo -->
-        <div class="time-section text-center">
+        <div class="time-section text-center moldura-site">
             <p class="fs-5"><strong>Juntos há</strong></p>
             <p id="tempoAmor" class="fw-bold text-danger fs-6">Calculando...</p>
         </div>
 
         <!-- Citação amorosa -->
-        <div class="love-quotes">
+        <div class="love-quotes moldura-site">
             <p class="fs-5"><strong>Feliz Dia dos Namorados!</strong></p>
             <p>Para você se lembrar de quantos dias se passaram da minha melhor decisão... E que a gente possa voltar
                 aqui e ver que os dias só aumentaram... Eu te amo eternamente, minha princesa ❤️</p>
@@ -162,7 +179,7 @@
 
 
         <!-- Vídeo YouTube -->
-        <div class="video-section">
+        <div class="video-section moldura-site">
             <iframe height="300" src="https://www.youtube.com/embed/cdES8TNAetc?si=WqT01qb5gGlAD904&autoplay=1&mute=0"
                 title="YouTube video" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
