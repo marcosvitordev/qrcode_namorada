@@ -88,14 +88,32 @@
                 transform: translateY(100vh) rotate(360deg);
             }
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
+
+        .text-nome {
+            font-family: "Edu NSW ACT Cursive", cursive;
+            font-optical-sizing: auto;
+        }
+
+        .texto-fundo {
+            position: relative;
+            background-color: #1e0f15;
+            z-index: 1;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            max-width: 550px;
+            padding: 2px;
+        }
     </style>
 </head>
 
 <body>
     <!-- Tela de senha -->
     <div id="telaSenha" class="senha-container container">
-        <h2>🔐 Digite a data do nosso namoro (dd/mm/aaaa)</h2>
-        <input type="password" id="inputSenha" class="form-control my-3 text-center mx-auto" placeholder=""
+        <h2>🔐<br> Digite a data do nosso namoro (dd/mm/aaaa)</h2>
+        <input type="date" id="inputSenha" class="form-control my-3 text-center mx-auto" placeholder=""
             style="max-width: 200px;" />
         <button onclick="verificarSenha()" class="btn btn-danger">Entrar</button>
         <p id="erroSenha" class="text-danger mt-3"></p>
@@ -103,7 +121,9 @@
 
     <!-- Conteúdo principal -->
     <div id="conteudoPrincipal" class="hidden container text-center py-4">
-        <h1 class="mb-3">💘 Nosso Amor 💘</h1>
+        <div class="texto-fundo">
+            <h1 class="text-nome">Natália <br> &<br> Marcos Vitor</h1>
+        </div>
 
         <!-- Spotify -->
         <div class="spotify-frame">
@@ -157,8 +177,10 @@
     <!-- Script da senha -->
     <script>
         function verificarSenha() {
-            const senha = document.getElementById("inputSenha").value.trim();
-            if ("01/06/2022" === "01/06/2022") {
+            const senha = document.getElementById("inputSenha").value;
+            const dataFormatada = senha.split("-").reverse().join("/");
+
+            if (dataFormatada === "01/06/2022") {
                 document.getElementById("telaSenha").style.display = "none";
                 document.getElementById("conteudoPrincipal").classList.remove("hidden");
             } else {
@@ -202,7 +224,7 @@
 
     <!-- Efeito de flores caindo -->
     <script>
-        const numFlores = 20;
+        const numFlores = 30;
 
         for (let i = 0; i < numFlores; i++) {
             const flor = document.createElement("div");
